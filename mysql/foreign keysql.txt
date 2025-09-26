@@ -1,0 +1,22 @@
+create table hope1(a int primary key,b int);
+desc hope1;
+
+create table hope2(a int,c int,foreign key(a) references hope1(a));
+desc hope2;
+
+
+insert into hope1 values(101,201);
+insert into hope1 values(102,202);
+insert into hope1 values(103,203);
+
+select * from hope1;
+
+
+insert into hope2 values(101,301);
+-- insert into hope2 values(104,302);
+insert into hope2 values(103,303);
+
+-- insert into hope2 values(null,304);
+-- insert into hope2 values(null,304);
+
+select * from hope2;

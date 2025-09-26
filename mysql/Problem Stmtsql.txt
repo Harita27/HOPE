@@ -1,0 +1,17 @@
+create table branch(branch_name varchar(20) primary key,branch_city varchar(20),asset int);
+desc branch;
+
+create table customer(customer_id varchar(20) primary key,customer_name varchar(50),customer_street varchar(20),customer_city varchar(20));
+desc customer;
+
+create table account(account_no varchar(20) primary key,branch_name varchar(20),balance int,foreign key(branch_name) references branch(branch_name));
+desc account;
+
+create table loan(loan_no varchar(20) primary key,branch_name varchar(20),amount int,foreign key(branch_name) references branch(branch_name));
+desc loan;
+
+create table borrower(loan_no varchar(20),customer_id varchar(20),foreign key(customer_id) references customer(customer_id),foreign key(loan_no) references loan(loan_no));
+desc borrower;
+
+create table depositor(account_no varchar(20),customer_id varchar(20),foreign key(account_no) references account(account_no),foreign key(customer_id) references customer(customer_id));
+desc depositor;

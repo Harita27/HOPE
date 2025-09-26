@@ -1,0 +1,13 @@
+create table hope1(a int unique,b int);
+desc hope1;
+
+insert into hope1 values(101,201);
+
+-- insert into hope1 values(101,202);
+
+insert into hope1 values(102,202);
+
+insert into hope1 values(null,203);
+insert into hope1 values(null,203);
+
+select * from hope1;

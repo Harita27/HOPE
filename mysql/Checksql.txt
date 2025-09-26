@@ -1,0 +1,9 @@
+create table hope1(a int check(a>100),b int);
+desc hope1;
+
+insert into hope1 values(101,200);
+-- insert into hope1 values(99,200);
+
+select * from hope1;
+
+

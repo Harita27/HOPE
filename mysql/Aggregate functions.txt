@@ -1,0 +1,130 @@
+
+create table branch(branch_name varchar(20) primary key,branch_city varchar(20),asset int);
+
+
+create table customer(customer_id varchar(20) primary key,customer_name varchar(50),customer_street varchar(20),customer_city varchar(20));
+
+
+create table account(account_no varchar(20) primary key,branch_name varchar(20),balance int,foreign key(branch_name) references branch(branch_name));
+
+
+create table loan(loan_no varchar(20) primary key,branch_name varchar(20),amount int,foreign key(branch_name) references branch(branch_name));
+
+
+create table borrower(loan_no varchar(20),customer_id varchar(20),foreign key(customer_id) references customer(customer_id),foreign key(loan_no) references loan(loan_no));
+
+
+create table depositor(account_no varchar(20),customer_id varchar(20),foreign key(account_no) references account(account_no),foreign key(customer_id) references customer(customer_id));
+
+
+insert into branch values('Tambaram','Chennai-45',50000);
+insert into branch values('Adayar','Chennai-20',100000);
+insert into branch values('Tnagar','Chennai-17',250000);
+insert into branch values('Saidapet','Chennai-15',150000);
+insert into branch values('Chrompet','Chennai-43',450000);
+insert into branch values('Guindy','Chennai-32',150000);
+
+
+
+insert into account values('SB_101','Tambaram',1500);
+insert into account values('SB_102','Adayar',2300);
+insert into account values('SB_103','TNagar',1800);
+insert into account values('SB_104','Saidapet',500);
+insert into account values('SB_105','Chrompet',500);
+insert into account values('SB_106','Guindy',500);
+insert into account values('SB_107','Guindy',900);
+insert into account values('SB_108','Chrompet',1300);
+
+
+
+
+
+insert into loan values('Loan_01','Guindy',900);
+insert into loan values('Loan_02','Adayar',1500);
+insert into loan values('Loan_03','Tambaram',1500);
+insert into loan values('Loan_04','Tambaram',1300);
+insert into loan values('Loan_05','Adayar',1000);
+insert into loan values('Loan_06','Saidapet',2000);
+insert into loan values('Loan_07','Chrompet',500);
+insert into loan values('Loan_08','Adayar',805);
+insert into loan values('Loan_09','Guindy',875);
+
+
+
+
+
+insert into customer values('Cust_01','Thanmathi D E','Main','Sankarankovil');
+insert into customer values('Cust_02','Bharkavi D E','South','Tirunelveli');
+insert into customer values('Cust_03','Thangasamy S','East','Madurai');
+insert into customer values('Cust_04','Veluchamy','North','Thuckalay');
+insert into customer values('Cust_05','Esther Venuga D','Main','Chennai');
+insert into customer values('Cust_06','Lakshmi V','West','Tenkasi');
+insert into customer values('Cust_07','Javid Ali L','South','Coimbatore');
+insert into customer values('Cust_08','Dickson Paul Samraj K','North','Vallioor');
+insert into customer values('Cust_09','Surenthran David P','West','Palayamkottai');
+insert into customer values('Cust_10','Suresh K','East','Salem');
+insert into customer values('Cust_11','Samiayya V','West','Chidambaram');
+insert into customer values('Cust_12','Sakunthaladevi S','South','Erode');
+insert into customer values('Cust_13','Muthuramalingam V','Main','Tiruppur');
+
+
+
+
+
+insert into borrower values('Loan_01','Cust_01');
+insert into borrower values('Loan_06','Cust_01');
+insert into borrower values('Loan_07','Cust_03');
+insert into borrower values('Loan_05','Cust_05');
+insert into borrower values('Loan_04','Cust_03');
+insert into borrower values('Loan_02','Cust_05');
+insert into borrower values('Loan_03','Cust_10');
+insert into borrower values('Loan_08','Cust_11');
+insert into borrower values('Loan_09','Cust_12');
+insert into borrower values('Loan_08','Cust_10');
+
+
+
+
+
+
+insert into depositor values('SB_101','Cust_04');
+insert into depositor values('SB_102','Cust_08');
+insert into depositor values('SB_103','Cust_03');
+insert into depositor values('SB_104','Cust_05');
+insert into depositor values('SB_105','Cust_07');
+insert into depositor values('SB_106','Cust_08');
+insert into depositor values('SB_107','Cust_02');
+insert into depositor values('SB_108','Cust_06');
+insert into depositor values('SB_108','Cust_09');
+
+select * from loan;
+
+select count(loan_no) from loan;
+select count(loan_no) as No_of_Loan from loan;
+
+
+select min(amount) from loan;
+select min(amount) as Minimum_Amount from loan;
+
+
+select max(amount) from loan;
+select max(amount) as Maximum_Amount from loan;
+
+select sum(amount) from loan;
+select sum(amount) as Total_Amount from loan;
+
+
+select avg(amount) from loan;
+select avg(amount) as Average_Amount from loan;
+
+
+
+
+
+
+
+
+
+
+
+
