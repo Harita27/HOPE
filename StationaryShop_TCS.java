@@ -19,15 +19,9 @@ public class Solution {
             System.out.print(0);
             return;
         }
-        int fact1=factorial(N);
-        int factd1=factorial(P);
-        int factd2=factorial(N-P);
-        int fact2=factorial(M);
-        int factd21=factorial(E);
-        int factd22=factorial(M-E);
-        int k=fact1/(factd1*factd2);
-        int l=fact2/(factd21*factd22);
-        System.out.print(k*l);
+        int res1=factorial(N)/(factorial(P)*factorial(N-P));
+        int res2=factorial(M)/(factorial(E)*factorial(M-E));
+        System.out.print(res1*res2);
         
         
     }
